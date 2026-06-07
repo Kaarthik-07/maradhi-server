@@ -1,0 +1,16 @@
+# render.yaml — optional, but lets you define the service as code
+# Place this in your repo root
+
+services:
+  - type: web
+    name: maradhi-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: JWT_SECRET
+        sync: false        # set manually in Render dashboard
+      - key: DATABASE_URL
+        sync: false        # your Supabase connection string
+    healthCheckPath: /health   # add a /health endpoint if you have one
