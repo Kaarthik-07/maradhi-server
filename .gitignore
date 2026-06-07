@@ -1,0 +1,44 @@
+# ── Compiled binaries ─────────────────────────────────────────
+/maradhi-api
+/maradhi
+/bin/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# ── Test & coverage output ────────────────────────────────────
+*.test
+*.out
+coverage.html
+coverage.out
+
+# ── Environment & secrets ─────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Go toolchain ──────────────────────────────────────────────
+vendor/
+
+# ── macOS ─────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Editor / IDE ──────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── Nix ───────────────────────────────────────────────────────
+result
+result-*
+
+# ── Logs & tmp ────────────────────────────────────────────────
+*.log
+tmp/

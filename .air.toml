@@ -1,0 +1,48 @@
+# .air.toml — Configuration for `air` (live reload for Go)
+# Run: make watch  OR  air
+# Docs: https://github.com/air-verse/air
+
+[build]
+  # The command that compiles the binary
+  cmd           = "go build -o ./tmp/maradhi-api ./cmd/api"
+
+  # The binary to run after a successful build
+  bin           = "./tmp/maradhi-api"
+
+  # Full command (binary + flags). Air replaces the previous process.
+  full_bin      = "./tmp/maradhi-api"
+
+  # Files/directories that trigger a rebuild when changed
+  include_ext   = ["go", "tpl", "tmpl", "html", "env"]
+
+  # Never watch these — they change constantly and aren't source files
+  exclude_dir   = ["tmp", ".gopath", "vendor", "migrations", "nix", "bin"]
+
+  # Ignore generated files
+  exclude_file  = []
+  exclude_regex = ["_test\\.go"]
+
+  # Delay between detecting a change and triggering a rebuild (ms)
+  # Prevents rebuilding on every keystroke while typing
+  delay         = 500
+
+  # Stop the old process before starting the new one
+  stop_on_error = true
+  send_interrupt = true
+  kill_delay    = "200ms"
+
+[log]
+  # Show build/run logs with timestamp
+  time          = true
+  # Only show errors, not all output
+  main_only     = false
+
+[color]
+  main    = "magenta"
+  watcher = "cyan"
+  build   = "yellow"
+  runner  = "green"
+
+[misc]
+  # Clean the tmp dir on exit
+  clean_on_exit = true
